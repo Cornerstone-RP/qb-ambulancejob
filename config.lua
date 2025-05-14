@@ -2,10 +2,10 @@ Config = {}
 Config.UseTarget = GetConvar('UseTarget', 'false') == 'true' -- Use qb-target interactions (don't change this, go to your server.cfg and add setr UseTarget true)
 Config.MinimalDoctors = 2                                    -- How many players with the ambulance job to prevent the hospital check-in system from being used
 Config.DocCooldown = 1                                       -- Cooldown between doctor calls allowed, in minutes
-Config.WipeInventoryOnRespawn = true                         -- Enable or disable removing all the players items when they respawn at the hospital
+Config.WipeInventoryOnRespawn = false                         -- Enable or disable removing all the players items when they respawn at the hospital
 Config.RespawnAtNearestHospital = true                       -- Enable or disable respawning at the closest hospital
 Config.Helicopter = 'polmav'                                 -- Helicopter model that players with the ambulance job can use
-Config.BillCost = 2000                                       -- Price that players are charged for using the hospital check-in system
+Config.BillCost = 1000                                       -- Price that players are charged for using the hospital check-in system
 Config.DeathTime = 300                                       -- How long the timer is for players to bleed out completely and respawn at the hospital
 Config.ReviveInterval = 360                                  -- How long the timer is for players to revive a player in laststand
 Config.MinimumRevive = 300                                   -- How long the timer is for players to revive a player in laststand
@@ -38,39 +38,40 @@ Config.AlertShowInfo = 2            -- How many injuries a player must have befo
 
 Config.Locations = {                -- Edit the various interaction points for players or create new ones
     ['checking'] = {
-        vector3(308.19, -595.35, 43.29),
-        vector3(-254.54, 6331.78, 32.43), -- paleto
+        vector3(-467.4397277832, -1000.8547363281, 23.700923919678),
+        vector3(-70.469833374023, 6525.1020507812, 31.462636947632), -- paleto
     },
     ['duty'] = {
-        vector3(311.18, -599.25, 43.29),
-        vector3(-254.88, 6324.5, 32.58), -- paleto
+        vector3(-467.52203369141, -992.06323242188, 23.700448989868),
+        vector3(-71.559280395508, 6524.0131835938, 31.462631225586), -- paleto
     },
     ['vehicle'] = {
-        vector4(294.578, -574.761, 43.179, 35.79),
-        vector4(-234.28, 6329.16, 32.15, 222.5), -- paleto
+        vector4(0, 0, 0, 0),
     },
     ['helicopter'] = {
-        vector4(351.58, -587.45, 74.16, 160.5),
-        vector4(-475.43, 5988.353, 31.716, 31.34), -- paleto
+        vector4(-458.85818481445, -953.69586181641, 41.488964080811, 181.43746948242),
+        vector4(-479.99703979492, -953.8603515625, 41.488960266113, 2.0229361057281),
+        vector4(-75.215156555176, 6491.1733398438, 31.491024017334, 136.5240020752), -- paleto
     },
     ['roof'] = {
-        vector4(338.5, -583.85, 74.16, 245.5),
+        vector4(0, 0, 0, 0),
     },
     ['main'] = {
-        vector3(298.74, -599.33, 43.29),
+        vector4(0, 0, 0, 0),
     },
     ['stash'] = {
-        vector3(309.78, -596.6, 43.29),
+        vector3(-458.67279052734, -1006.4091186523, 23.74453163147),
+        vector3(-72.888656616211, 6508.9672851562, 31.462558746338), -- paleto
     },
     ['beds'] = {
-        { coords = vector4(353.1, -584.6, 43.11, 152.08),    taken = false, model = 1631638868 },
-        { coords = vector4(356.79, -585.86, 43.11, 152.08),  taken = false, model = 1631638868 },
-        { coords = vector4(354.12, -593.12, 43.1, 336.32),   taken = false, model = 2117668672 },
-        { coords = vector4(350.79, -591.8, 43.1, 336.32),    taken = false, model = 2117668672 },
-        { coords = vector4(346.99, -590.48, 43.1, 336.32),   taken = false, model = 2117668672 },
-        { coords = vector4(360.32, -587.19, 43.02, 152.08),  taken = false, model = -1091386327 },
-        { coords = vector4(349.82, -583.33, 43.02, 152.08),  taken = false, model = -1091386327 },
-        { coords = vector4(326.98, -576.17, 43.02, 152.08),  taken = false, model = -1091386327 },
+        { coords = vector4(-460.25, -995.81, 28.93, 264.41),  taken = false, model = 1631638868 },
+        { coords = vector4(-460.18, -991.19, 28.93, 264.41),  taken = false, model = 1631638868 },
+        { coords = vector4(-460.16, -1002.14, 28.93, 264.41),  taken = false, model = 2117668672 },
+        { coords = vector4(-460.14, -1006.82, 28.93, 264.41),  taken = false, model = 2117668672 },
+        { coords = vector4(-452.76, -1006.36, 28.93, 85.0),   taken = false, model = 2117668672 },
+        { coords = vector4(-452.77, -1001.84, 28.93, 85.0),   taken = false, model = -1091386327 },
+        { coords = vector4(-452.77, -996.47, 28.93, 85.0),    taken = false, model = -1091386327 },
+        { coords = vector4(-452.76, -991.88, 28.93, 85.0),    taken = false, model = -1091386327 },
         --- paleto
         { coords = vector4(-252.43, 6312.25, 32.34, 313.48), taken = false, model = 2117668672 },
         { coords = vector4(-247.04, 6317.95, 32.34, 134.64), taken = false, model = 2117668672 },
@@ -87,14 +88,14 @@ Config.Locations = {                -- Edit the various interaction points for p
             ['name'] = Lang:t('info.pb_hospital'),
             ['location'] = vector3(308.36, -595.25, 43.28),
             ['beds'] = {
-                { coords = vector4(353.1, -584.6, 43.11, 152.08),   taken = false, model = 1631638868 },
-                { coords = vector4(356.79, -585.86, 43.11, 152.08), taken = false, model = 1631638868 },
-                { coords = vector4(354.12, -593.12, 43.1, 336.32),  taken = false, model = 2117668672 },
-                { coords = vector4(350.79, -591.8, 43.1, 336.32),   taken = false, model = 2117668672 },
-                { coords = vector4(346.99, -590.48, 43.1, 336.32),  taken = false, model = 2117668672 },
-                { coords = vector4(360.32, -587.19, 43.02, 152.08), taken = false, model = -1091386327 },
-                { coords = vector4(349.82, -583.33, 43.02, 152.08), taken = false, model = -1091386327 },
-                { coords = vector4(326.98, -576.17, 43.02, 152.08), taken = false, model = -1091386327 },
+                { coords = vector4(-460.25, -995.81, 28.93, 264.41),  taken = false, model = 1631638868 },
+                { coords = vector4(-460.18, -991.19, 28.93, 264.41),  taken = false, model = 1631638868 },
+                { coords = vector4(-460.16, -1002.14, 28.93, 264.41), taken = false, model = 2117668672 },
+                { coords = vector4(-460.14, -1006.82, 28.93, 264.41), taken = false, model = 2117668672 },
+                { coords = vector4(-452.76, -1006.36, 28.93, 85.0),   taken = false, model = 2117668672 },
+                { coords = vector4(-452.77, -1001.84, 28.93, 85.0),   taken = false, model = -1091386327 },
+                { coords = vector4(-452.77, -996.47, 28.93, 85.0),    taken = false, model = -1091386327 },
+                { coords = vector4(-452.76, -991.88, 28.93, 85.0),    taken = false, model = -1091386327 },
             },
         },
         {
@@ -108,7 +109,8 @@ Config.Locations = {                -- Edit the various interaction points for p
         },
     },
     ['stations'] = {
-        { label = Lang:t('info.pb_hospital'), coords = vector3(304.27, -600.33, 43.28) }
+        { label = Lang:t('info.ls_hospital'), coords = vector3(-467.4397277832, -1000.8547363281, 23.700923919678) },
+        { label = Lang:t('info.pb_hospital'), coords = vector3(-70.469833374023, 6525.1020507812, 31.462636947632) }
     }
 }
 
@@ -437,6 +439,15 @@ Config.Weapons = { -- Correspond weapon names to their class number
     [`WEAPON_EXHAUSTION`] = Config.WeaponClasses['SUFFOCATING'],          -- Exhaust
     [`WEAPON_BZGAS`] = Config.WeaponClasses['SUFFOCATING'],
     [`WEAPON_SMOKEGRENADE`] = Config.WeaponClasses['SUFFOCATING'],
+
+    -- markomods
+    [`WEAPON_X17`] = Config.WeaponClasses['SMALL_CALIBER'],
+    [`WEAPON_PM4`] = Config.WeaponClasses['MEDIUM_CALIBER'],
+    [`WEAPON_R9`] = Config.WeaponClasses['MEDIUM_CALIBER'],
+    [`WEAPON_590`] = Config.WeaponClasses['SHOTGUN'],
+    [`WEAPON_TACTICALSNIPER`] = Config.WeaponClasses['HIGH_CALIBER'],
+    [`WEAPON_TACTICALSNIPER_FDE`] = Config.WeaponClasses['HIGH_CALIBER'],
+    [`WEAPON_TACTICALSNIPER_TANODIZED`] = Config.WeaponClasses['HIGH_CALIBER'],
 }
 
 Config.VehicleSettings = { -- Enable or disable vehicle extras when pulling them from the ambulance job vehicle spawner
