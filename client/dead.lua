@@ -194,6 +194,7 @@ CreateThread(function()
 
                     if IsControlJustPressed(0, 47) and not emsNotified then
                         TriggerServerEvent('hospital:server:ambulanceAlert', Lang:t('info.civ_down'))
+                        exports['envi-medic']:SendHelp() -- Sends an ambulance to the player
                         emsNotified = true
                     end
                 end
